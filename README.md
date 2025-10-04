@@ -25,7 +25,4 @@ Su objetivo es ofrecer una herramienta práctica, moderna y adaptable a entornos
 - **Backend:** Django ORM  
 - **Sistema operativo recomendado:** Windows 10/11
 
----
-
-## 🧩 Estructura del Proyecto
 
