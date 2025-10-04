@@ -1,4 +1,4 @@
-
+#Modelo de todos los horarios
 from django.db import models
 
 
