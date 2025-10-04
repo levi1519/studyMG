@@ -1,3 +1,5 @@
+#panel de administracion.
+
 from django.contrib import admin
 from subject.models import Asignatura
 
