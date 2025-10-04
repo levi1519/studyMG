@@ -1,0 +1,25 @@
+<!-- activity_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Detalles de la Actividad</h1>
+  <div class="actividad" data-fechalimite="{{ activity.fecha_limite|date:'Y-m-d' }}" data-horalimite="{{ activity.hora_limite|time:'H:i' }}">
+    <!-- Información de la actividad -->
+    Tipo: {{ activity.tipo }}<br>
+    Título: {{ activity.titulo }}<br>
+    Asignatura: {{ activity.asignatura }}<br>
+    Profesor: {{ activity.asignatura.profesor }}<br>
+    Fecha de Creación: {{ activity.fecha_creacion|date:"d/m/Y H:i" }}<br>
+    Fecha Límite: {{ activity.fecha_limite|date:"d/m/Y" }} {{ activity.hora_limite|time:"H:i" }}<br>
+    Tiempo Restante: <span class="tiempo-restante"></span><br> <!-- Aquí se mostrará el tiempo restante -->
+    Prioridad: {{ activity.prioridad }}<br>
+    <!-- Botón para editar actividad -->
+    <a href="{% url 'hworks:update_activity' activity.pk %}">Editar</a>
+    <!-- Botón para eliminar actividad -->
+    <a href="{% url 'hworks:delete_activity' activity.pk %}">Eliminar</a>
+  </div>
+
+  <!-- Incluir el archivo JavaScript de tiempo_restante.js -->
+  <script src="{% static 'tareas/tiempo_restante.js' %}"></script>
+{% endblock %}

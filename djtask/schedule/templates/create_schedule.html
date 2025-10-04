@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Horario - {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h2>Crear Nuevo Horario</h2>
+  <form method="post">
+    {% csrf_token %}
+    <!-- Se elimina el bucle que muestra todos los errores para evitar duplicados en la parte superior -->
+    {{ form.non_field_errors }} <!-- Si quieres mostrar errores que no están asociados a un campo específico -->
+    <div class="fieldWrapper">
+      {{ form.asignatura.errors }}
+      {{ form.asignatura.label_tag }} {{ form.asignatura }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.dia_semana.errors }}
+      {{ form.dia_semana.label_tag }} {{ form.dia_semana }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.hora_inicio.label_tag }} {{ form.hora_inicio }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.hora_fin.label_tag }} {{ form.hora_fin }}
+    </div>
+    <div class="fieldWrapper">
+      {{ form.hora_inicio.errors }}
+      {{ form.hora_fin.errors }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear Horario</button>
+  </form>
+{% endblock %}

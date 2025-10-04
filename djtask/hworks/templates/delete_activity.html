@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Eliminar Actividad</h1>
+  <p>¿Estás seguro de que deseas eliminar la actividad "{{ activity.titulo }}"?</p>
+  <div class="actividad" data-fechalimite="{{ activity.fecha_limite|date:'Y-m-d' }}" data-horalimite="{{ activity.hora_limite|time:'H:i' }}">
+    <ul>
+      <li>Tipo: {{ activity.tipo }}</li>
+      <li>Título: {{ activity.titulo }}</li>
+      <li>Asignatura: {{ activity.asignatura }}</li>
+      <li>Profesor: {{ activity.asignatura.profesor }}</li>
+      <li>Fecha de Creación: {{ activity.fecha_creacion|date:"d/m/Y H:i" }}</li>
+      <li>Fecha Límite: {{ activity.fecha_limite|date:"d/m/Y" }} {{ activity.hora_limite|time:"H:i" }}</li>
+      <li>Tiempo Restante: <span class="tiempo-restante"></span></li> <!-- Aquí se mostrará el tiempo restante -->
+      <li>Prioridad: {{ activity.prioridad }}</li>
+      {% if activity.calificacion %}
+        <li>Calificación: {{ activity.calificacion }}</li>
+      {% endif %}
+    </ul>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'hworks:activity_list' %}">Cancelar</a>
+  </div>
+  
+  <!-- Incluir el archivo JavaScript de tiempo_restante.js -->
+  <script src="{% static 'tareas/tiempo_restante.js' %}"></script>
+{% endblock %}

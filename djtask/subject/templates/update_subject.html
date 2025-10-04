@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Asignatura - {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h2>Actualizar Asignatura</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Esto mostrará los campos del formulario como párrafos -->
+    <button type="submit">Guardar cambios</button>
+  </form>
+{% endblock %}

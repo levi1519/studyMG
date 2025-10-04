@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Asignatura - {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h2>Eliminar Asignatura</h2>
+  <p>¿Estás seguro de que deseas eliminar "{{ object }}"?</p>
+  <form method="post" action="{% url 'delete_subject' object.pk %}">
+    {% csrf_token %}
+    <button type="submit">Sí</button>
+  </form>
+  <a href="{% url 'subject_list' %}">No</a>
+{% endblock %}

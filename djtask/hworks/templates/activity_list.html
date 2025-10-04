@@ -1,0 +1,42 @@
+<!-- activity_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Lista de Actividades</h1>
+  <ul>
+    {% for activity in activity_list %}
+      <li class="actividad" data-fechalimite="{{ activity.fecha_limite|date:'Y-m-d' }}" data-horalimite="{{ activity.hora_limite|time:'H:i' }}">
+        <a href="{% url 'hworks:activity_detail' activity.pk %}">{{ activity.titulo }}</a><br>
+        Tipo: {{ activity.tipo }}<br>
+        Asignatura: {{ activity.asignatura }}<br>
+        Profesor: {{ activity.asignatura.profesor }}<br>
+        Fecha de Creación: {{ activity.fecha_creacion|date:"d/m/Y H:i" }}<br>
+        {% if activity.fecha_limite %}
+          {% if activity.hora_limite %}
+            Fecha Límite: {{ activity.fecha_limite|date:"d/m/Y" }} {{ activity.hora_limite|time:"H:i" }}<br>
+          {% else %}
+            Fecha Límite: {{ activity.fecha_limite|date:"d/m/Y" }}<br>
+          {% endif %}
+        {% endif %}
+        Tiempo Restante: <span class="tiempo-restante"></span><br> <!-- Aquí se mostrará el tiempo restante -->
+        <li>Prioridad: {{ activity.prioridad }}</li>
+        {% if activity.calificacion %}
+          <li>Calificación: {{ activity.calificacion }}</li>
+        {% endif %}
+        <!-- Botón para editar actividad -->
+        <a href="{% url 'hworks:update_activity' activity.pk %}">Editar</a>
+        <!-- Botón para eliminar actividad -->
+        <a href="{% url 'hworks:delete_activity' activity.pk %}">Eliminar</a>                          
+      </li>
+    {% empty %}
+      <li>No hay actividades disponibles</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'hworks:create_activity' %}">Crear nueva actividad</a>
+
+
+  <!-- Incluir el archivo JavaScript de tiempo_restante.js -->
+  <script src="{% static 'tareas/tiempo_restante.js' %}"></script> 
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles de la Asignatura - {{ subject.titulo }}{% endblock %}
+
+{% block content %}
+  <h2>Detalles de la Asignatura</h2>
+  <ul>
+    <li><strong>Título:</strong> {{ subject.titulo }}</li>
+    <li><strong>Profesor:</strong> {{ subject.profesor }}</li>
+    <li><strong>Descripción:</strong> {{ subject.descripcion }}</li>
+    <li><strong>Tipo de Asignatura:</strong> {{ subject.tipo_asignatura }}</li>
+    <li><strong>Modalidad:</strong> {{ subject.modalidad }}</li>
+    <li><strong>URL de Clases Grabadas:</strong> {{ subject.url_clases_grabadas|default:"Sin registrar" }}</li>
+    <!-- Agregar más detalles si es necesario -->
+  </ul>
+
+  <!-- Botones para eliminar y editar -->
+  <a href="{% url 'delete_subject' subject.pk %}"><button>Eliminar</button></a>
+  <a href="{% url 'update_subject' subject.pk %}"><button>Editar</button></a>
+{% endblock %}

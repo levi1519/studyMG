@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalles del Horario - {{ block.super }}{% endblock %}
+
+{% block content %}
+  <h2>Detalles del Horario</h2>
+  <p><strong>Asignatura:</strong> {{ schedule.asignatura.titulo }}</p>
+  <p><strong>Día de la Semana:</strong> {{ schedule.dia_semana }}</p>
+  <p><strong>Hora de Inicio:</strong> {{ schedule.hora_inicio }}</p>
+  <p><strong>Hora de Fin:</strong> {{ schedule.hora_fin }}</p>
+
+  <a href="{% url 'schedule:update_schedule' schedule.pk %}" class="btn btn-primary">Editar</a>
+
+  <form method="post" action="{% url 'schedule:delete_schedule' schedule.pk %}" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+  </form>
+{% endblock %}
