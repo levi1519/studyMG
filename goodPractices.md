@@ -9,10 +9,10 @@
 - **refactor/componente** - Para refactorización de código
 
 **Ejemplos:**
-- ✅ `feature/login-system`
-- ✅ `fix/database-connection`
-- ❌ `mi-rama` (muy genérico)
-- ❌ `test` (no descriptivo)
+- `feature/login-system`
+- `fix/database-connection`
+- `mi-rama` (muy genérico)
+- `test` (no descriptivo)
 
 ### Mensajes de Commit
 Usar prefijos convencionales seguidos de descripción clara:
@@ -27,11 +27,11 @@ Usar prefijos convencionales seguidos de descripción clara:
 
 **Formato recomendado:**
 **Ejemplos:**
-- ✅ `feat: Add user authentication module`
-- ✅ `fix: Resolve login validation error`
-- ✅ `docs: Update README with installation steps`
-- ❌ `cambios` (no descriptivo)
-- ❌ `fixed bug` (demasiado genérico)
+-  `feat: Add user authentication module`
+-  `fix: Resolve login validation error`
+-  `docs: Update README with installation steps`
+-  `cambios` (no descriptivo)
+-  `fixed bug` (demasiado genérico)
 
 ## 2. Workflow de Desarrollo con Git
 
