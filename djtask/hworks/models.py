@@ -1,3 +1,4 @@
+#modelo de todas las tareas
 from django.db import models
 from subject.models import Asignatura
 
