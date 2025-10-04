@@ -1,3 +1,6 @@
+# Modelo para gestión de asignaturas académicas
+# Permite administrar materias con información de profesores y horarios
+
 from django.db import models
 
 
