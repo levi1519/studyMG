@@ -1,3 +1,7 @@
+# Url para gestión de enlaces entre asignatiuras académicas
+# Permite administrar enlaces del modulo asignaturas
+
+
 """
 URL configuration for djtask project.
 
